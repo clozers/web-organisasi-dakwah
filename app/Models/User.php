@@ -22,6 +22,11 @@ class User extends Authenticatable implements FilamentUser
     protected $fillable = [
         'name',
         'email',
+        'alamat',
+        'foto',
+        'kampus',
+        'nm_institusi',
+        'institusi_id',
         'no_tlp',
         'role',
         'password',
@@ -53,6 +58,11 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessPanel(Panel $panel): bool
     {
         // Hanya role admin yang boleh masuk panel admin
-        return $this->role === 'admin';
+        return in_array($this->role, ['admin', 'ketua', 'wakil_ketua', 'sekretaris', 'bendahara']);
+    }
+
+    public function institusi()
+    {
+        return $this->belongsTo(\App\Models\Institusi::class, 'institusi_id', 'id_institusi');
     }
 }

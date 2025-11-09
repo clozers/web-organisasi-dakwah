@@ -28,9 +28,19 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+
+            // 💡 Tambahkan di sini:
+            ->brandLogo(asset('assets_frontend\img\logo_spai.png'))
+            ->brandLogoHeight('4rem')
+
             ->colors([
                 'primary' => Color::Amber,
-            ])
+            ])  
+            ->renderHook(
+                'panels::head.start',
+                fn() => '
+                <title>Admin Panel SAI</title>'
+            )
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([

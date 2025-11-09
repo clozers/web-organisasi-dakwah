@@ -22,7 +22,6 @@ class EventsTable
                 ImageColumn::make('banner')
                     ->label('Banner')
                     ->getStateUsing(fn($record) => $record->banner ? asset('storage/' . $record->banner) : null)
-                    ->height(60)
                     ->square(),
                 TextColumn::make('start_at')
                     ->dateTime()

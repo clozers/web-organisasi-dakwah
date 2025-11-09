@@ -28,6 +28,11 @@ class RegistrationResource extends Resource
         return RegistrationForm::configure($schema);
     }
 
+    public static function getNavigationLabel(): string
+    {
+        return 'Data Peserta Seminar';
+    }
+
     public static function table(Table $table): Table
     {
         return RegistrationsTable::configure($table);

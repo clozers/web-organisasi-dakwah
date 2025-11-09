@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Filament\Facades\Filament;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Filament::serving(function () {
+            // Ubah favicon tab browser
+            \Filament\Support\Facades\FilamentView::registerRenderHook(
+                'panels::head.start',
+                fn() => '<link rel="icon" type="image/png" href="' . asset('assets_frontend/img/logo_spai.jpg') . '">'
+            );
+        });
     }
 }

@@ -22,6 +22,11 @@ class RegistrationsTable
                     ->label('User')
                     ->sortable()
                     ->searchable(),
+                
+                TextColumn::make('no_tlp')
+                    ->label('No. Telepon')
+                    ->sortable()
+                    ->searchable(),
 
                 TextColumn::make('event.title')
                     ->label('Event')

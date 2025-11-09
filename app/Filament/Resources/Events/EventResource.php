@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Filament\Facades\Filament;
 
 class EventResource extends Resource
 {
@@ -25,6 +26,17 @@ class EventResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return EventForm::configure($schema);
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Seminar/Workshop';
+    }
+
+    public static function canViewAny(): bool
+    {
+        // hanya user role admin, ketua, dan sekretaris yang boleh akses resource ini
+        return in_array(Filament::auth()->user()?->role, ['admin', 'ketua', 'sekretaris', 'wakil_ketua']);
     }
 
     public static function table(Table $table): Table

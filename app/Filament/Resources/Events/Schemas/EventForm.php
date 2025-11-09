@@ -46,7 +46,7 @@ class EventForm
                     ->label('Banner')
                     ->image()                      // hanya gambar
                     ->disk('public')               // simpan di disk 'public'
-                    ->directory('banners')
+                    ->directory('bannersevents')   // di folder 'bannersevents'
                     ->imagePreviewHeight('200')
                     ->downloadable()
                     ->openable()
