@@ -23,7 +23,7 @@ class RegistrationsTable
                     ->sortable()
                     ->searchable(),
                 
-                TextColumn::make('no_tlp')
+                TextColumn::make('phone')
                     ->label('No. Telepon')
                     ->sortable()
                     ->searchable(),
