@@ -16,10 +16,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets_frontend/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets_frontend/img/favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets_frontend/img/logo_spai.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets_frontend/img/logo_spai.png') }}">
     <title>
-        Material Kit 3 by Creative Tim
+        Serikat Pekerja Apoteker Indonesia
     </title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
@@ -60,7 +60,7 @@
                         <a class="navbar-brand font-weight-bolder ms-sm-3 text-sm" href="/homepage" rel="tooltip"
                             title="Designed and Coded by Creative Tim" data-placement="bottom">
                             <img src="{{ asset('assets_frontend/img/logo_spai.png') }}" width="40px" alt="" srcset="">
-                            Serikat Apoteker Indonesia
+                            Serikat Pekerja Apoteker Indonesia
                         </a>
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"

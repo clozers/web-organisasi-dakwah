@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Institusi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -11,7 +12,9 @@ class AuthController extends Controller
 {
     public function showRegister()
     {
-        return view('auth.register');
+        $institusis = Institusi::all();
+
+        return view('auth.register', compact('institusis'));
     }
 
     public function register(Request $request)
@@ -22,7 +25,7 @@ class AuthController extends Controller
             'no_tlp' => 'required|string|max:20',
             'password' => 'required|min:6|confirmed',
             'city_of_practice' => 'required|string|max:100',
-            'institution_of_practice' => 'required|in:Apotek,Rumah Sakit,Industri,Pemerintah (Dinkes, BPOM, Puskesmas, dll)',
+            'institusi_id' => 'required|exists:institusis,id_institusi',
         ]);
 
         User::create([
@@ -31,7 +34,7 @@ class AuthController extends Controller
             'no_tlp' => '+62' . ltrim($request->no_tlp, '0'),
             'password' => Hash::make($request->password),
             'city_of_practice' => $request->city_of_practice,
-            'institution_of_practice' => $request->institution_of_practice,
+            'institusi_id' => $request->institusi_id,
         ]);
 
         return redirect('/login')->with('success', 'Registrasi berhasil! Silakan login.');
