@@ -8,7 +8,7 @@ use App\Http\Controllers\SeminarController;
 use App\Http\Controllers\RegistrationController;
 
 
-Route::get('/', [EventController::class, 'index'])->name('home');
+
 Route::get('/events/{event}', [EventController::class, 'show'])->middleware('auth')->name('events.show');
 Route::post('/events/{event}/register', [RegistrationController::class, 'store'])->middleware('auth')->name('events.register');
 
@@ -20,6 +20,10 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/', function () {
+    return view('frontend.homepage.index');
+})->name('homepage');
 
 Route::get('/homepage', function () {
     return view('frontend.homepage.index');
