@@ -26,6 +26,7 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed',
             'city_of_practice' => 'required|string|max:100',
             'institusi_id' => 'required|exists:institusis,id_institusi',
+            'licensing_pharmacy' => 'required|in:ya,tidak,tidak tahu',
         ]);
 
         User::create([
@@ -35,6 +36,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
             'city_of_practice' => $request->city_of_practice,
             'institusi_id' => $request->institusi_id,
+            'licensing_pharmacy' => $request->licensing_pharmacy,
         ]);
 
         return redirect('/login')->with('success', 'Registrasi berhasil! Silakan login.');

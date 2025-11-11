@@ -20,17 +20,16 @@
                         </svg>
                     </div>
                 </div>
-                <h2>Welcome back</h2>
-                <p>Please sign in to continue</p>
+                <h2>Selamat Datang</h2>
+                <p>Silakan masuk untuk melanjutkan</p>
             </div>
 
             <form action="{{ route('login') }}" method="POST" class="login-form" id="loginForm" novalidate>
                 @csrf
                 <div class="form-group">
                     <div class="input-group neu-input">
-                        <input type="email" id="email" name="email" required autocomplete="email"
-                            placeholder=" ">
-                        <label for="email">Email address</label>
+                        <input type="email" id="email" name="email" required autocomplete="email" placeholder=" ">
+                        <label for="email">Alamat Email</label>
                         <div class="input-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -71,22 +70,12 @@
                 </div>
 
                 <div class="form-options">
-                    <div class="remember-wrapper">
-                        <input type="checkbox" id="remember" name="remember">
-                        <label for="remember" class="checkbox-label">
-                            <div class="neu-checkbox">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                            </div>
-                            Remember me
-                        </label>
-                    </div>
-                    <a href="#" class="forgot-link">Forgot password?</a>
+                    <a href="#" class="forgot-link">Lupa kata sandi?</a>
                 </div>
 
+
                 <button type="submit" class="neu-button login-btn">
-                    <span class="btn-text">Sign In</span>
+                    <span class="btn-text">Masuk</span>
                     <div class="btn-loader">
                         <div class="neu-spinner"></div>
                     </div>
@@ -95,7 +84,7 @@
 
             <div class="divider">
                 <div class="divider-line"></div>
-                <span>or continue with</span>
+                <span>atau lanjutkan dengan</span>
                 <div class="divider-line"></div>
             </div>
 
@@ -127,7 +116,7 @@
             </div>
 
             <div class="signup-link">
-                <p>Don't have an account? <a href="{{ route('register') }}">Sign up</a></p>
+                <p>Belum punya akun? <a href="{{ route('register') }}">Daftar</a></p>
             </div>
 
             <div class="success-message" id="successMessage">
@@ -136,8 +125,8 @@
                         <polyline points="20 6 9 17 4 12" />
                     </svg>
                 </div>
-                <h3>Success!</h3>
-                <p>Redirecting to your dashboard...</p>
+                <h3>Berhasil!</h3>
+                <p>Mengarahkan ke halaman beranda Anda...</p>
             </div>
         </div>
     </div>

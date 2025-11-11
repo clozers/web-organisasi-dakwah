@@ -32,6 +32,7 @@ class User extends Authenticatable implements FilamentUser
         'password',
         'city_of_practice',
         'institution_of_practice',
+        'licensing_pharmacy',
     ];
 
     /**

@@ -1,10 +1,15 @@
 // Neumorphism Login Form JavaScript
 class NeumorphismLoginForm {
     constructor() {
-        this.form = document.getElementById('loginForm');
+        this.form = document.getElementById('loginForm') || document.getElementById('registerForm');
+        if (!this.form) return; // kalau dua2nya gak ada, berhenti
         this.emailInput = document.getElementById('email');
         this.passwordInput = document.getElementById('password');
-        this.passwordToggle = document.getElementById('passwordToggle');
+        this.nameInput = document.getElementById('name');
+        this.noTlpInput = document.getElementById('no_tlp');
+        this.cityOfPracticeInput = document.getElementById('city_of_practice');
+        this.institusiSelect = document.getElementById('institusi_id');
+        this.licensingPharmacySelect = document.getElementById('licensing_pharmacy');
         this.submitButton = this.form.querySelector('.login-btn');
         this.successMessage = document.getElementById('successMessage');
         this.socialButtons = document.querySelectorAll('.neu-social');
@@ -25,6 +30,24 @@ class NeumorphismLoginForm {
         this.passwordInput.addEventListener('blur', () => this.validatePassword());
         this.emailInput.addEventListener('input', () => this.clearError('email'));
         this.passwordInput.addEventListener('input', () => this.clearError('password'));
+        if (this.nameInput) {
+            this.nameInput.addEventListener('blur', () => this.validateName());
+            this.nameInput.addEventListener('input', () => this.clearError('name'));
+        }
+        if (this.noTlpInput) {
+            this.noTlpInput.addEventListener('blur', () => this.validateNoTlp());
+            this.noTlpInput.addEventListener('input', () => this.clearError('no_tlp'));
+        }
+        if (this.cityOfPracticeInput) {
+            this.cityOfPracticeInput.addEventListener('blur', () => this.validateCityOfPractice());
+            this.cityOfPracticeInput.addEventListener('input', () => this.clearError('city_of_practice'));
+        }
+        if (this.institusiSelect) {
+            this.institusiSelect.addEventListener('change', () => this.validateInstitusi());
+        }
+        if (this.licensingPharmacySelect) {
+            this.licensingPharmacySelect.addEventListener('change', () => this.validateLicensingPharmacy());
+        }
         
         // Add soft press effects to inputs
         [this.emailInput, this.passwordInput].forEach(input => {
@@ -34,14 +57,35 @@ class NeumorphismLoginForm {
     }
     
     setupPasswordToggle() {
-        this.passwordToggle.addEventListener('click', () => {
-            const type = this.passwordInput.type === 'password' ? 'text' : 'password';
-            this.passwordInput.type = type;
-            
-            this.passwordToggle.classList.toggle('show-password', type === 'text');
-            
-            // Add soft click animation
-            this.animateSoftPress(this.passwordToggle);
+        // ambil semua tombol toggle (bisa ada 0, 1, atau lebih)
+        const toggles = this.form.querySelectorAll('.password-toggle');
+        if (!toggles || toggles.length === 0) return;
+
+        toggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                // cari input dalam grup yang sama
+                const input = toggle.closest('.password-group')?.querySelector('input[type="password"], input[type="text"]');
+                if (!input) return;
+
+                const type = input.type === 'password' ? 'text' : 'password';
+                input.type = type;
+
+                // update ikon (jika ada)
+                const eyeOpen = toggle.querySelector('.eye-open');
+                const eyeClosed = toggle.querySelector('.eye-closed');
+                if (eyeOpen && eyeClosed) {
+                    if (type === 'text') {
+                        eyeOpen.style.display = 'none';
+                        eyeClosed.style.display = 'inline';
+                    } else {
+                        eyeOpen.style.display = 'inline';
+                        eyeClosed.style.display = 'none';
+                    }
+                }
+
+                // animasi lembut
+                this.animateSoftPress(toggle);
+            });
         });
     }
     
@@ -124,12 +168,12 @@ class NeumorphismLoginForm {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         
         if (!email) {
-            this.showError('email', 'Email is required');
+            this.showError('email', 'Email wajib diisi');
             return false;
         }
         
         if (!emailRegex.test(email)) {
-            this.showError('email', 'Please enter a valid email');
+            this.showError('email', 'Masukkan email yang valid');
             return false;
         }
         
@@ -141,19 +185,84 @@ class NeumorphismLoginForm {
         const password = this.passwordInput.value;
         
         if (!password) {
-            this.showError('password', 'Password is required');
+            this.showError('password', 'Password wajib diisi');
             return false;
         }
         
         if (password.length < 6) {
-            this.showError('password', 'Password must be at least 6 characters');
+            this.showError('password', 'Password harus terdiri dari minimal 6 karakter');
             return false;
         }
         
         this.clearError('password');
         return true;
     }
+
+    validateName() {
+        const name = this.nameInput.value;
+        if (!name) {
+            this.showError('name', 'Nama wajib diisi');
+            return false;
+        }
+        this.clearError('name');
+        return true;
+    }
+
+    validateNoTlp() {
+        const noTlp = this.noTlpInput.value;
+        if (!noTlp) {
+            this.showError('no_tlp', 'No Telepon wajib diisi');
+            return false;
+        }
+
+        const digitsOnly = noTlp.replace(/\D/g, '');
+        if (digitsOnly.length < 10 || digitsOnly.length > 15) {
+            this.showError('no_tlp', 'No Telepon harus 10–15 digit');
+            return false;
+        }
+        if (!/^(\+62|0)\d{9,13}$/.test(noTlp)) {
+            this.showError('no_tlp', 'Gunakan format nomor Indonesia, contoh: 081234567890 atau +6281234567890');
+            return false;
+        }
+
+        // ✅ Jika lolos semua validasi
+        this.clearError('no_tlp');
+        return true;
+    }
     
+    validateCityOfPractice() {
+        const cityOfPractice = this.cityOfPracticeInput.value;
+        if (!cityOfPractice) {
+            this.showError('city_of_practice', 'Kota Tempat Praktek wajib diisi');
+            return false;
+        }
+
+        this.clearError('city_of_practice');
+        return true;
+    }
+
+    validateInstitusi() {
+        const institusi = this.institusiSelect.value;
+        if (!institusi) {
+            this.showError('institusi_id', 'Institusi Praktek wajib diisi');
+            return false;
+        }
+
+        this.clearError('institusi_id');
+        return true;
+    }
+
+    validateLicensingPharmacy() {
+        const licensingPharmacy = this.licensingPharmacySelect.value;
+        if (!licensingPharmacy) {
+            this.showError('licensing_pharmacy', 'Lisensi Apotek wajib diisi');
+            return false;
+        }
+
+        this.clearError('licensing_pharmacy');
+        return true;
+    }
+
     showError(field, message) {
         const formGroup = document.getElementById(field).closest('.form-group');
         const errorElement = document.getElementById(`${field}Error`);
@@ -182,28 +291,59 @@ class NeumorphismLoginForm {
     }
     
     async handleSubmit(e) {
-        const isEmailValid = this.validateEmail();
-        const isPasswordValid = this.validatePassword();
-        
-        if (!isEmailValid || !isPasswordValid) {
+        e.preventDefault();
+
+        const isLogin = this.form.id === 'loginForm';
+        const isRegister = this.form.id === 'registerForm';
+
+        let valid = true;
+
+        if (isLogin) {
+            const emailOk = this.validateEmail();
+            const passwordOk = this.validatePassword();
+            valid = emailOk && passwordOk;
+        }
+
+        if (isRegister) {
+            const nameOk = this.validateName();
+            const emailOk = this.validateEmail();
+            const passwordOk = this.validatePassword();
+            const noTlpOk = this.validateNoTlp();
+            const cityOk = this.validateCityOfPractice();
+            const institusiOk = this.validateInstitusi();
+            const licenseOk = this.validateLicensingPharmacy();
+
+            valid = nameOk && emailOk && passwordOk && noTlpOk && cityOk && institusiOk && licenseOk;
+        }
+
+        if (!valid) {
             this.animateSoftPress(this.submitButton);
             return;
         }
-        
+
         this.setLoading(true);
         
         try {
-            // Simulate soft authentication
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            // Show neumorphic success
+            const formData = new FormData(this.form);
+            const response = await fetch(this.form.action, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                },
+                body: formData
+            });
+
+            if (!response.ok) throw new Error('Gagal mendaftar');
+
             this.showNeumorphicSuccess();
         } catch (error) {
-            this.showError('password', 'Login failed. Please try again.');
+            console.error(error);
+            this.showError('password', 'Registrasi gagal. Silakan coba lagi.');
         } finally {
             this.setLoading(false);
         }
     }
+
     
     async handleSocialLogin(provider, button) {
         console.log(`Initiating ${provider} login...`);
@@ -256,9 +396,14 @@ class NeumorphismLoginForm {
         
         // Simulate redirect
         setTimeout(() => {
-            console.log('Redirecting to dashboard...');
-            window.location.href = '/seminar';
-        }, 2500);
+            if (this.form.id === 'registerForm') {
+            console.log('Redirecting to login...');
+            window.location.href = '/login';
+            } else if (this.form.id === 'loginForm') {
+                console.log('Redirecting to seminar...');
+                window.location.href = '/seminar';
+            }
+        }, 2000);
     }
 }
 

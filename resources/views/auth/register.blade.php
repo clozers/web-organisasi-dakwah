@@ -62,8 +62,8 @@
                         </svg>
                     </div>
                 </div>
-                <h2>Create Account</h2>
-                <p>Please fill in the form to register</p>
+                <h2>Daftar Akun</h2>
+                <p>Silakan isi formulir untuk mendaftar</p>
             </div>
 
             <form action="{{ route('register') }}" method="POST" class="login-form" id="registerForm" novalidate>
@@ -81,12 +81,13 @@
                             </svg>
                         </div>
                     </div>
+                    <span class="error-message" id="nameError"></span>
                 </div>
 
                 <!-- Email -->
                 <div class="form-group">
                     <div class="input-group neu-input">
-                        <input type="email" id="email" name="email" required placeholder=" ">
+                        <input type="email" id="email" name="email" value="{{ old('email') }}" required placeholder=" ">
                         <label for="email">Email</label>
                         <div class="input-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -95,12 +96,13 @@
                             </svg>
                         </div>
                     </div>
+                    <span class="error-message" id="emailError"></span>
                 </div>
 
                 <!-- No Telepon -->
                 <div class="form-group">
                     <div class="input-group neu-input">
-                        <input type="text" id="no_tlp" name="no_tlp" required placeholder=" ">
+                        <input type="number" id="no_tlp" name="no_tlp" required placeholder=" ">
                         <label for="no_tlp">No Telepon</label>
                         <div class="input-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -109,6 +111,7 @@
                             </svg>
                         </div>
                     </div>
+                    <span class="error-message" id="no_tlpError"></span>
                 </div>
 
                 <!-- Kota Tempat Praktek -->
@@ -123,6 +126,7 @@
                             </svg>
                         </div>
                     </div>
+                    <span class="error-message" id="city_of_practiceError"></span>
                 </div>
 
                 <!-- Institusi Praktek -->
@@ -135,14 +139,52 @@
                             @endforeach
                         </select>
                     </div>
+                    <span class="error-message" id="institusi_idError"></span>
+                </div>
+
+                <!-- Licensing Pharmacy -->
+                <div class="form-group">
+                    <div class="input-group neu-input neu-input-select">
+                        <select id="licensing_pharmacy" name="licensing_pharmacy" class="form-select" required>
+                            <option value="" disabled text-dark selected>apakah di kota Anda sudah menerapkan SLF untuk
+                                perizinan apotek ?
+                            </option>
+                            <option value="ya">Ya</option>
+                            <option value="tidak">Tidak</option>
+                            <option value="tidak tahu">Tidak Tahu</option>
+                        </select>
+                    </div>
+                    <span class="error-message" id="licensing_pharmacyError"></span>
                 </div>
 
                 <!-- Password -->
                 <div class="form-group">
                     <div class="input-group neu-input password-group">
-                        <input type="password" id="password" name="password" required placeholder=" ">
+                        <input type="password" id="password" name="password" required autocomplete="current-password"
+                            placeholder=" ">
                         <label for="password">Password</label>
+                        <div class="input-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                <path d="M7 11V7a5 5 0 0110 0v4" />
+                            </svg>
+                        </div>
+                        <button type="button" class="password-toggle neu-toggle" id="passwordToggle"
+                            aria-label="Toggle password visibility">
+                            <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                            <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                                <line x1="1" y1="1" x2="23" y2="23" />
+                            </svg>
+                        </button>
                     </div>
+                    <span class="error-message" id="passwordError"></span>
                 </div>
 
                 <!-- Konfirmasi Password -->
@@ -151,7 +193,28 @@
                         <input type="password" id="password_confirmation" name="password_confirmation" required
                             placeholder=" ">
                         <label for="password_confirmation">Konfirmasi Password</label>
+                        <div class="input-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                <path d="M7 11V7a5 5 0 0110 0v4" />
+                            </svg>
+                        </div>
+                        <button type="button" class="password-toggle neu-toggle" id="passwordToggleSuccess"
+                            aria-label="Toggle password visibility">
+                            <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                            <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                                <line x1="1" y1="1" x2="23" y2="23" />
+                            </svg>
+                        </button>
                     </div>
+                    <span class="error-message" id="password_confirmationError"></span>
                 </div>
 
                 <button type="submit" class="neu-button login-btn">
@@ -162,11 +225,7 @@
                 </button>
             </form>
 
-            <div class="signup-link">
-                <p>Sudah punya akun? <a href="{{ route('login') }}">Login</a></p>
-            </div>
-
-            <div class="success-message" id="successMessage">
+            <div class="success-message">
                 <div class="success-icon neu-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                         <polyline points="20 6 9 17 4 12" />
@@ -175,11 +234,78 @@
                 <h3>Registrasi Berhasil!</h3>
                 <p>Anda akan diarahkan ke halaman login...</p>
             </div>
+
+            <div class="signup-link">
+                <p>Sudah punya akun? <a href="{{ route('login') }}">Masuk</a></p>
+            </div>
         </div>
     </div>
 
     <script src="{{ asset('assets_auth/form-utils.js') }}"></script>
     <script src="{{ asset('assets_auth/script.js') }}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".password-toggle").forEach(toggle => {
+                toggle.addEventListener("click", function () {
+                    const input = this.closest(".password-group").querySelector("input[type='password'], input[type='text']");
+                    const eyeOpen = this.querySelector(".eye-open");
+                    const eyeClosed = this.querySelector(".eye-closed");
+
+                    if (input.type === "password") {
+                        input.type = "text";
+                        eyeOpen.style.display = "none";
+                        eyeClosed.style.display = "inline";
+                    } else {
+                        input.type = "password";
+                        eyeOpen.style.display = "inline";
+                        eyeClosed.style.display = "none";
+                    }
+
+                    // animasi lembut
+                    this.style.transform = "scale(0.9)";
+                    setTimeout(() => this.style.transform = "scale(1)", 150);
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Ambil semua tombol toggle password
+            const toggles = document.querySelectorAll(".password-toggle");
+
+            toggles.forEach(toggle => {
+                toggle.addEventListener("click", function () {
+                    const input = this.closest(".password-group").querySelector("input");
+                    const eyeOpen = this.querySelector(".eye-open");
+                    const eyeClosed = this.querySelector(".eye-closed");
+
+                    // Toggle type input
+                    if (input.type === "password") {
+                        input.type = "text";
+                        eyeOpen.style.display = "none";
+                        eyeClosed.style.display = "inline";
+                    } else {
+                        input.type = "password";
+                        eyeOpen.style.display = "inline";
+                        eyeClosed.style.display = "none";
+                    }
+
+                    // Animasi kecil
+                    this.style.transform = "scale(0.9)";
+                    setTimeout(() => this.style.transform = "scale(1)", 150);
+                });
+
+                // Set tampilan awal agar hanya 1 ikon yang muncul
+                const eyeOpen = toggle.querySelector(".eye-open");
+                const eyeClosed = toggle.querySelector(".eye-closed");
+                eyeClosed.style.display = "none";
+                eyeOpen.style.display = "inline";
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>

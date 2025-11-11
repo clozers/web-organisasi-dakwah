@@ -59,8 +59,7 @@
                     <div class="container-fluid px-0">
                         <a class="navbar-brand font-weight-bolder ms-sm-3 text-sm" href="/homepage" rel="tooltip"
                             title="Designed and Coded by Creative Tim" data-placement="bottom">
-                            <img src="{{ asset('assets_frontend/img/logo_spai.png') }}" width="40px" alt=""
-                                srcset="">
+                            <img src="{{ asset('assets_frontend/img/logo_spai.png') }}" width="40px" alt="" srcset="">
                             Serikat Apoteker Indonesia
                         </a>
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
@@ -251,76 +250,76 @@
                                     </a>
                                 </li>
                                 @auth
-                                    <li class="nav-item dropdown dropdown-hover mx-2">
-                                        <a class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-semibold {{ request()->Routeis('profile') ? 'active' : '' }}"
-                                            id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="material-symbols-rounded opacity-6 me-2 text-md">contacts</i>
-                                            Account
-                                            <img src="{{ asset('assets_frontend/img/down-arrow-dark.svg') }}"
-                                                alt="down-arrow" class="arrow ms-auto ms-md-2">
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-animation dropdown-sm dropdown-lg-responsive p-3 border-radius-lg mt-0 mt-lg-3"
-                                            aria-labelledby="dropdownMenuBlocks">
-                                            <div class="d-none d-lg-block">
-                                                <h6
-                                                    class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                                                    Account
-                                                </h6>
-                                                <a href="/profile" class="dropdown-item border-radius-md">
-                                                    <span>Profile</span>
-                                                </a>
-                                                <form action="{{ route('logout') }}" method="POST" class="w-100">
-                                                    @csrf
-                                                    <button
-                                                        class="dropdown-item border-radius-md align-items-center border-0 bg-transparent text-start w-100">
-                                                        <span>Logout</span>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                            <div class="row d-lg-none">
-                                                <div class="col-md-12">
-                                                    <div class="d-flex mb-2">
-                                                        <div class="icon h-10 me-3 d-flex mt-1">
-                                                            <i
-                                                                class="material-symbols-rounded opacity-6 me-2 text-md">person</i>
-                                                        </div>
-                                                        <div
-                                                            class="w-100 d-flex align-items-center justify-content-between">
-                                                            <a href="#">
-                                                                <div>
-                                                                    <h6
-                                                                        class="dropdown-header d-flex justify-content-cente align-items-center p-0">
-                                                                        Profile</h6>
-                                                                </div>
-                                                            </a>
-                                                        </div>
+                                <li class="nav-item dropdown dropdown-hover mx-2">
+                                    <a class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-semibold {{ request()->Routeis('profile') ? 'active' : '' }}"
+                                        id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="material-symbols-rounded opacity-6 me-2 text-md">contacts</i>
+                                        Account
+                                        <img src="{{ asset('assets_frontend/img/down-arrow-dark.svg') }}"
+                                            alt="down-arrow" class="arrow ms-auto ms-md-2">
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-animation dropdown-sm dropdown-lg-responsive p-3 border-radius-lg mt-0 mt-lg-3"
+                                        aria-labelledby="dropdownMenuBlocks">
+                                        <div class="d-none d-lg-block">
+                                            <h6
+                                                class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                                                Account
+                                            </h6>
+                                            <a href="/profile" class="dropdown-item border-radius-md">
+                                                <span>Profile</span>
+                                            </a>
+                                            <form action="{{ route('logout') }}" method="POST" class="w-100">
+                                                @csrf
+                                                <button
+                                                    class="dropdown-item border-radius-md align-items-center border-0 bg-transparent text-start w-100">
+                                                    <span>Logout</span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <div class="row d-lg-none">
+                                            <div class="col-md-12">
+                                                <div class="d-flex mb-2">
+                                                    <div class="icon h-10 me-3 d-flex mt-1">
+                                                        <i
+                                                            class="material-symbols-rounded opacity-6 me-2 text-md">person</i>
                                                     </div>
-                                                    <div class="d-flex mb-2">
-                                                        <div class="icon h-10 me-3 d-flex mt-1">
-                                                            <i
-                                                                class="material-symbols-rounded opacity-6 me-2 text-md">logout</i>
-                                                        </div>
-                                                        <div
-                                                            class="w-100 d-flex align-items-center justify-content-between">
-                                                            <form action="{{ route('logout') }}" method="POST"
-                                                                class="w-100">
-                                                                @csrf
-                                                                <button
-                                                                    class="dropdown-item d-flex align-items-center p-0 border-0 bg-transparent text-start w-100">
-                                                                    <h7 class="m-0">Logout</h7>
-                                                                </button>
-                                                            </form>
-                                                        </div>
+                                                    <div
+                                                        class="w-100 d-flex align-items-center justify-content-between">
+                                                        <a href="#">
+                                                            <div>
+                                                                <h6
+                                                                    class="dropdown-header d-flex justify-content-cente align-items-center p-0">
+                                                                    Profile</h6>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex mb-2">
+                                                    <div class="icon h-10 me-3 d-flex mt-1">
+                                                        <i
+                                                            class="material-symbols-rounded opacity-6 me-2 text-md">logout</i>
+                                                    </div>
+                                                    <div
+                                                        class="w-100 d-flex align-items-center justify-content-between">
+                                                        <form action="{{ route('logout') }}" method="POST"
+                                                            class="w-100">
+                                                            @csrf
+                                                            <button
+                                                                class="dropdown-item d-flex align-items-center p-0 border-0 bg-transparent text-start w-100">
+                                                                <h7 class="m-0">Logout</h7>
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </ul>
-                                    </li>
+                                        </div>
+                                    </ul>
+                                </li>
                                 @else
-                                    <li class="nav-item my-auto ms-3 ms-lg-0">
-                                        <a href="{{ route('login') }}"
-                                            class="btn  bg-gradient-dark  mb-0 mt-2 mt-md-0">Login</a>
-                                    </li>
+                                <li class="nav-item my-auto ms-3 ms-lg-0">
+                                    <a href="{{ route('login') }}"
+                                        class="btn  bg-gradient-dark  mb-0 mt-2 mt-md-0">Login</a>
+                                </li>
                                 @endauth
 
 
@@ -487,8 +486,7 @@
                             All rights reserved. Copyright ©
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> Serikat Apoteker Indonesia<a href="#">Creative
-                                Tim</a>.
+                            </script> Serikat Apoteker Indonesia
                         </p>
                     </div>
                 </div>

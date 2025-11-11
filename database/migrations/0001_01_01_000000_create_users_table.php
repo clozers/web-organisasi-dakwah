@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('city_of_practice');
             $table->enum('institution_of_practice', ['Apotek', 'Rumah Sakit', 'Industri', 'Pemerintah (Dinkes, BPOM, Puskesmas, dll)']);
+            $table->enum('licensing_pharmacy', ['ya', 'tidak', 'tidak tahu']);
             $table->rememberToken();
             $table->timestamps();
         });
