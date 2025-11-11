@@ -428,6 +428,10 @@ if (!document.querySelector('#neu-keyframes')) {
 }
 
 // Initialize the form when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new NeumorphismLoginForm();
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const form = document.getElementById('loginForm') || document.getElementById('registerForm');
+        if (form) new NeumorphismLoginForm();
+        else console.warn('Form login/register tidak ditemukan di halaman ini.');
+    }, 100); // delay kecil agar DOM benar-benar siap
 });
