@@ -6,7 +6,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 use App\Models\Institusi;
-use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,12 +19,10 @@ class UserForm
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-
                 TextInput::make('email')
                     ->required()
                     ->email()
                     ->maxLength(255),
-
                 TextInput::make('no_tlp')
                     ->label('No. Telepon')
                     ->required()
@@ -33,15 +31,13 @@ class UserForm
                     ->label('Kota Praktik')
                     ->required()
                     ->maxLength(255),
-                TextArea::make('alamat')
+                Textarea::make('alamat')
                     ->required()
                     ->maxLength(500),
-
                 TextInput::make('kampus')
                     ->label('Kampus')
                     ->required()
                     ->maxLength(255),
-
                 FileUpload::make('foto')
                     ->label('Pasfoto')
                     ->image()
@@ -53,19 +49,16 @@ class UserForm
                     ->maxSize(2048)
                     ->deletable(true)
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/jpg']),
-
                 TextInput::make('nm_institusi')
                     ->label('Nama Institusi')
                     ->required()
                     ->maxLength(255),
-
                 Select::make('institusi_id')
                     ->label('Institusi')
                     ->options(Institusi::pluck('nm_institusi', 'id_institusi'))
                     ->searchable()
                     ->preload()
                     ->nullable(),
-
                 Select::make('role')
                     ->options([
                         'ketua' => 'Ketua',
@@ -74,7 +67,6 @@ class UserForm
                         'bendahara' => 'Bendahara',
                     ])
                     ->required(),
-
                 // 🔒 Tambah input password
                 TextInput::make('password')
                     ->label('Password')
