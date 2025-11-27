@@ -26,8 +26,15 @@ class UsersTable
                     ->searchable(),
                 TextColumn::make('no_tlp')
                     ->label('No. Telepon')
-                    ->searchable(),
+                    ->searchable()
+                    ->url(fn($record) => 'https://api.whatsapp.com/send?phone=' . preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', $record->phone)))
+                    ->openUrlInNewTab(), // biar buka di tab baru
                 TextColumn::make('alamat')
+                    ->searchable()
+                    ->limit(50)
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('city_of_practice')
+                    ->label('Kota Praktik')
                     ->searchable()
                     ->limit(50)
                     ->toggleable(isToggledHiddenByDefault: true),
