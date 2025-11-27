@@ -329,13 +329,43 @@ class NeumorphismLoginForm {
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                    'Accept': 'application/json',            // ⛔ WAJIB
+                    'X-Requested-With': 'XMLHttpRequest'     
                 },
                 body: formData
             });
 
-            if (!response.ok) throw new Error('Gagal mendaftar');
+            if (isLogin) {
+                if (response.status === 401) {
+                    this.showError('password', 'Email atau password salah');
+                    this.showError('email', 'Email atau password salah');
+                    return; // ⛔ stop, jangan lanjut ke success
+                }
 
-            this.showNeumorphicSuccess();
+                if (!response.ok) {
+                    this.showError('password', 'Login gagal. Silakan coba lagi.');
+                    return;
+                }
+            }
+
+            // Untuk register, tangani error validasi Laravel
+            if (isRegister) {
+                if (response.status === 422) {
+                    const data = await response.json();
+                    if (data.errors.email) this.showError('email', data.errors.email[0]);
+                    if (data.errors.password) this.showError('password', data.errors.password[0]);
+                    return;
+                }
+
+                if (!response.ok) {
+                    this.showError('password', 'Registrasi gagal. Silakan coba lagi.');
+                    return;
+                }
+            }
+
+        // Jika lolos semua cek → success
+        this.showNeumorphicSuccess();
+
         } catch (error) {
             console.error(error);
             this.showError('password', 'Registrasi gagal. Silakan coba lagi.');
