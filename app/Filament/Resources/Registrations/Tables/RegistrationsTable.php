@@ -2,9 +2,14 @@
 
 namespace App\Filament\Resources\Registrations\Tables;
 
-use App\Models\Registration;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\BulkAction;
+use Illuminate\Support\Collection;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\BadgeColumn;
 
@@ -72,6 +77,26 @@ class RegistrationsTable
                 Tables\Filters\SelectFilter::make('event_id')
                     ->relationship('event', 'title')
                     ->label('Event'),
+            ])
+            ->recordActions([
+                ViewAction::make(),
+                EditAction::make(),
+            ])
+
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    BulkAction::make('approveSelected')
+                        ->label('Approve Selected')
+                        ->icon('heroicon-o-check-circle')
+                        ->color('success')
+                        ->action(function (Collection $records) {
+                            $records
+                                ->where('status', 'waiting_approval')
+                                ->each
+                                ->update(['status' => 'approved']);
+                        }),
+                    DeleteBulkAction::make(),
+                ]),
             ]);
     }
 }

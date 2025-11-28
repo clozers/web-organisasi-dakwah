@@ -37,6 +37,8 @@ class UserResource extends Resource
         return in_array(Filament::auth()->user()?->role, ['admin', 'ketua', 'sekretaris', 'wakil_ketua']);
     }
 
+
+
     public static function canCreate(): bool
     {
         // hanya user role admin yang boleh membuat user baru
@@ -68,6 +70,8 @@ class UserResource extends Resource
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
+        // hanya ambil user dengan role admin
+        return parent::getEloquentQuery()->where('role', 'admin');
 
         // Sembunyikan user dengan role admin
         return $query->where('role', '!=', 'admin');

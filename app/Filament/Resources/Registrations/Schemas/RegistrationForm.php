@@ -29,11 +29,11 @@ class RegistrationForm
                     ->required(),
                 Select::make('status')
                     ->options([
-            'waiting_payment' => 'Waiting payment',
-            'waiting_approval' => 'Waiting approval',
-            'approved' => 'Approved',
-            'rejected' => 'Rejected',
-        ])
+                        'waiting_payment' => 'Waiting payment',
+                        'waiting_approval' => 'Waiting approval',
+                        'approved' => 'Approved',
+                        'rejected' => 'Rejected',
+                    ])
                     ->default('waiting_payment')
                     ->required(),
                 TextInput::make('amount')
