@@ -14,16 +14,16 @@
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
                 <div class="carousel-inner mb-4">
                     <div class="carousel-item active">
-                        <div class="page-header min-vh-75"
-                            style="background-image: url('assets_frontend/img/apoteker.png');">
+                        <div class="page-header min-vh-75" style="background-image: url('assets_frontend/img/logo.jpg');">
                             <span class="mask bg-gradient-dark"></span>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-6 my-auto">
-                                        <h1 class="text-white fadeIn2 fadeInBottom">Apoteker Indonesia</h1>
+                                        <h1 class="text-white fadeIn2 fadeInBottom">Dewan Da’wah Risalah Islamiyyah — Sulit
+                                            Air</h1>
                                         <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">
-                                            Kami adalah profesional yang mengedukasi pasien, memastikan penggunaan obat aman
-                                            dan hasil terapi efektif.
+                                            “Menjadi Institusi Da’wah Risalah Islamiyyah Terkemuka dalam Masyarakat Sulit
+                                            Air.”
                                         </p>
                                         <a href="" class="btn bg-gradient-info w-auto me-2">Lihat Selengkapnya</a>
                                     </div>
@@ -34,15 +34,15 @@
 
                     <div class="carousel-item">
                         <div class="page-header min-vh-75"
-                            style="background-image: url('assets_frontend/img/apoteker-3.png');">
+                            style="background-image: url('assets_frontend/img/logo.jpg');">
                             <span class="mask bg-gradient-dark"></span>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-6 my-auto">
                                         <h1 class="text-white fadeIn2 fadeInBottom">Struktur Organisasi</h1>
                                         <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">
-                                            Lihat hierarki kepengurusan organisasi profesi kami, memastikan tata kelola yang
-                                            transparan dan akuntabel.
+                                            Lihat hierarki kepengurusan dan fungsi kelembagaan kami: Musyawarah Tahunan,
+                                            Ketua Umum, Sekretaris, Bendahara, Dakwah / Tabligh, serta Dewan Pakar.
                                         </p>
                                         <a href="" class="btn bg-gradient-info w-auto me-2">Lihat Selengkapnya</a>
                                     </div>
@@ -53,15 +53,15 @@
 
                     <div class="carousel-item">
                         <div class="page-header min-vh-75"
-                            style="background-image: url('assets_frontend/img/apoteker-4.png');">
+                            style="background-image: url('assets_frontend/img/logo.jpg');">
                             <span class="mask bg-gradient-dark"></span>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-6 my-auto">
-                                        <h1 class="text-white fadeIn2 fadeInBottom">Program Pengembangan Profesional</h1>
+                                        <h1 class="text-white fadeIn2 fadeInBottom">Program Dakwah & Pengembangan</h1>
                                         <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">
-                                            Tingkatkan kompetensi melalui berbagai pelatihan, seminar, dan sertifikasi
-                                            sesuai standar kefarmasian terkini.
+                                            Melaksanakan kegiatan dakwah, pendidikan, ekonomi, sosial dan budaya yang
+                                            berdampak bagi masyarakat Sulit Air.
                                         </p>
                                         <a href="" class="btn bg-gradient-info w-auto me-2">Lihat Selengkapnya</a>
                                     </div>
@@ -103,7 +103,7 @@
                         <div class="row">
                             @php
                                 $total = $totalDonasiApproved ?? 0;
-                                $display = 'Rp ' . number_format($total, 0, ',', '.'); // e.g. "Rp 1.250.000"
+                                $display = 'Rp ' . number_format($total, 0, ',', '.'); // keep numeric formatting (if used)
                             @endphp
 
                             <div class="col-md-4 position-relative">
@@ -116,12 +116,10 @@
                                             {{ $display }}
                                         </span>
                                     </h1>
-                                    <h5 class="mt-3">Total Donasi Terkumpul</h5>
+                                    <h5 class="mt-3">Total Donasi / Dukungan</h5>
                                     <p class="text-sm font-weight-normal text-muted">
-                                        Terima kasih—dukungan Anda membantu memperkuat solidaritas dan perjuangan apoteker
-                                        Indonesia.
-                                        Setiap donasi membawa dampak nyata bagi kesejahteraan dan keberlangsungan organisasi
-                                        kita.
+                                        Terima kasih—dukungan Anda memperkuat aktivitas dakwah dan program sosial Dewan
+                                        Da’wah Risalah Islamiyyah.
                                     </p>
                                 </div>
                                 <hr class="vertical dark">
@@ -129,18 +127,18 @@
                             <div class="col-md-4 position-relative">
                                 <div class="p-3 text-center">
                                     <h1 class="text-gradient text-dark"> <span id="state2" countTo="15">10</span>+</h1>
-                                    <h5 class="mt-3">Artikel</h5>
-                                    <p class="text-sm font-weight-normal">Terdapat 10+ artikel yang membahas berbagai topik
-                                        terkait apoteker.</p>
+                                    <h5 class="mt-3">Artikel / Publikasi</h5>
+                                    <p class="text-sm font-weight-normal">Terdapat publikasi dan materi dakwah yang membahas
+                                        berbagai topik keagamaan dan sosial.</p>
                                 </div>
                                 <hr class="vertical dark">
                             </div>
                             <div class="col-md-4">
                                 <div class="p-3 text-center">
                                     <h1 class="text-gradient text-dark" id="state3" countTo="4">5</h1>
-                                    <h5 class="mt-3">Seminar</h5>
-                                    <p class="text-sm font-weight-normal">Terdapat 5 seminar yang membahas berbagai topik
-                                        terkait apoteker.</p>
+                                    <h5 class="mt-3">Kegiatan</h5>
+                                    <p class="text-sm font-weight-normal">Berbagai kegiatan pendidikan, tabligh, dan program
+                                        pemberdayaan masyarakat.</p>
                                 </div>
                             </div>
                         </div>
@@ -155,16 +153,13 @@
                     <div class="col-md-7 col-12 my-auto">
                         <div class="info-horizontal border-radius-xl d-block d-md-flex p-4 h-100">
                             <div class="ps-0 ps-md-3 mt-3 mt-md-0">
-                                <h5>Serikat Apoteker Indonesia</h5>
-                                <p class="p-horizontal">Kami aktif menyelenggarakan berbagai kegiatan pengembangan
-                                    profesi dan sosial, mulai dari
-                                    seminar ilmiah, pelatihan kefarmasian, hingga program pengabdian masyarakat. Setiap
-                                    kegiatan dirancang untuk memperkuat kompetensi apoteker serta berkontribusi nyata dalam
-                                    peningkatan mutu pelayanan kesehatan di Indonesia. Melalui kolaborasi dan inovasi, kami
-                                    berkomitmen membangun komunitas apoteker yang profesional, berintegritas, dan berdampak
-                                    positif bagi masyarakat.</p><br>
+                                <h5>Dakwah Dewan Risalah</h5>
+                                <p class="p-horizontal">Dewan Da’wah Risalah Islamiyyah aktif menyelenggarakan kegiatan
+                                    dalam bidang pendidikan, keagamaan, ekonomi, sosial, dan budaya. Setiap program
+                                    dirancang untuk memperkuat kaderisasi da’i, mengembangkan metode dakwah kreatif, serta
+                                    memberikan kontribusi nyata bagi masyarakat Sulit Air.</p><br>
                                 <a href="#" class="text-dark icon-move-right">
-                                    Lihat Slengkapnya
+                                    Lihat Selengkapnya
                                     <i class="fas fa-arrow-right text-sm ms-1"></i>
                                 </a>
                             </div>
@@ -173,7 +168,7 @@
                     <div class="col-md-5 col-12 my-auto">
                         <a href="#">
                             <img class="w-100 border-radius-lg shadow-lg"
-                                src="{{ asset('assets_frontend/img/apoteker-3.png') }}" alt="Product Image">
+                                src="{{ asset('assets_frontend/img/logo.jpg') }}" alt="Dakwah Image">
                         </a>
                     </div>
                 </div>
@@ -184,13 +179,11 @@
             <div class="container">
                 <div class="row justify-content-center text-center ms-auto me-auto">
                     <div class="col-lg-10 mb-5">
-                        <h2 class="text-dark mb-0">Our Leader</h2>
+                        <h2 class="text-dark mb-0">Pimpinan & Tokoh</h2>
                         <p class="text-muted mt-3 p-horizontal">
                             Sosok yang menjadi panutan dan penggerak utama organisasi. Dengan visi yang jelas dan semangat
-                            pengabdian tinggi,
-                            beliau memimpin Serikat Apoteker Indonesia untuk terus memperjuangkan profesionalisme,
-                            integritas,
-                            dan kesejahteraan apoteker di seluruh Indonesia.
+                            pengabdian tinggi, beliau memimpin Dewan Da’wah Risalah Islamiyyah untuk mewujudkan tujuan
+                            dakwah dan pemberdayaan masyarakat.
                         </p>
                     </div>
                 </div>
@@ -204,21 +197,20 @@
                             <div
                                 class="card card-rotate card-background card-background-mask-primary shadow-dark mt-md-0 mt-5">
                                 <div class="front front-background"
-                                    style="background-image: url('{{ asset('assets_frontend/img/apoteker-5.png') }}'); background-size: cover;">
+                                    style="background-image: url('{{ asset('assets_frontend/img/logo.jpg') }}'); background-size: cover;">
                                     <div class="card-body py-7 text-center"><br><br>
                                         <h3 class="text-white">Ketua Umum</h3>
                                         <p class="text-white opacity-8 ">Pemimpin yang menginspirasi dengan visi, empati,
-                                            dan
-                                            dedikasi untuk kemajuan profesi apoteker Indonesia.</p>
+                                            dan dedikasi untuk kemajuan dakwah di Sulit Air.</p>
                                     </div>
                                 </div>
                                 <div class="back back-background"
-                                    style="background-image: url('{{ asset('assets_frontend/img/apoteker-6.png') }}'); background-size: cover;">
+                                    style="background-image: url('{{ asset('assets_frontend/img/logo.jpg') }}'); background-size: cover;">
                                     <div class="card-body pt-7 text-center">
                                         <h3 class="text-white">Tentang Pemimpin Kami</h3>
                                         <p class="text-white opacity-8" style="text-align: justify;">
-                                            Memimpin dengan prinsip kolaborasi, kejujuran, dan inovasi,
-                                            beliau berkomitmen membangun ekosistem farmasi yang kuat dan berdaya saing.
+                                            Memimpin dengan prinsip kolaborasi, amanah, dan inovasi dalam memperkuat peran
+                                            lembaga dakwah di tingkat lokal dan regional.
                                         </p>
                                         <a href="#" class="btn btn-white btn-sm w-50 mx-auto mt-3">Selengkapnya</a>
                                     </div>
@@ -233,39 +225,33 @@
                             <div class="col-md-6">
                                 <div class="info">
                                     <i class="material-symbols-rounded text-gradient text-success text-3xl">groups</i>
-                                    <h5 class="font-weight-bolder mt-3">Kepemimpinan Kolaboratif</h5>
-                                    <p class="pe-5" style="text-align: justify;">Mendorong sinergi antar anggota agar
-                                        organisasi tumbuh secara kolektif
-                                        dan berkelanjutan.</p>
+                                    <h5 class="font-weight-bolder mt-3">Kaderisasi & Pendidikan</h5>
+                                    <p class="pe-5" style="text-align: justify;">Membangun kapasitas da’i dan anggota
+                                        melalui pendidikan berkelanjutan.</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info">
                                     <i class="material-symbols-rounded text-gradient text-success text-3xl">verified</i>
-                                    <h5 class="font-weight-bolder mt-3">Integritas Tinggi</h5>
-                                    <p class="pe-3" style="text-align: justify;">Menjadi teladan dalam kejujuran,
-                                        tanggung
-                                        jawab, dan etika profesi
-                                        apoteker.</p>
+                                    <h5 class="font-weight-bolder mt-3">Amanah & Integritas</h5>
+                                    <p class="pe-3" style="text-align: justify;">Menjunjung tinggi kejujuran, tanggung
+                                        jawab, dan etika dalam penyelenggaraan dakwah.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="row justify-content-start mt-5">
                             <div class="col-md-6 mt-3">
                                 <i class="material-symbols-rounded text-gradient text-success text-3xl">lightbulb</i>
-                                <h5 class="font-weight-bolder mt-3">Visi Inovatif</h5>
-                                <p class="pe-5" style="text-align: justify;">Memimpin perubahan dengan ide-ide baru yang
-                                    menjawab tantangan dunia
-                                    kesehatan modern.</p>
+                                <h5 class="font-weight-bolder mt-3">Inovasi Dakwah</h5>
+                                <p class="pe-5" style="text-align: justify;">Mengembangkan konsep dan metode dakwah yang
+                                    relevan dengan tantangan masa kini.</p>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="info">
                                     <i class="material-symbols-rounded text-gradient text-success text-3xl">handshake</i>
-                                    <h5 class="font-weight-bolder mt-3">Kepedulian Sosial</h5>
-                                    <p class="pe-3" style="text-align: justify;">Menumbuhkan budaya empati dan
-                                        kepedulian
-                                        terhadap masyarakat serta
-                                        profesi apoteker di daerah.</p>
+                                    <h5 class="font-weight-bolder mt-3">Kemitraan</h5>
+                                    <p class="pe-3" style="text-align: justify;">Membangun sinergi dengan lembaga
+                                        pemerintah, yayasan, dan komunitas lokal.</p>
                                 </div>
                             </div>
                         </div>
@@ -279,11 +265,10 @@
                 <div class="row align-items-center">
                     <div class="row justify-content-center text-center ms-auto me-auto">
                         <div class="col-lg-10">
-                            <h2 class="text-dark mb-0">Our Activities</h2>
-                            <p class="text-muted mt-3 p-horizontal">Kami aktif menyelenggarakan berbagai kegiatan
-                                pengembangan
-                                profesi dan sosial,
-                                mulai dari seminar ilmiah, pelatihan kefarmasian, hingga program pengabdian masyarakat. </p>
+                            <h2 class="text-dark mb-0">Kegiatan Kami</h2>
+                            <p class="text-muted mt-3 p-horizontal">Dewan Da’wah Risalah Islamiyyah menyelenggarakan
+                                seminar, pelatihan, tabligh, dan program pemberdayaan sosial untuk meningkatkan kualitas
+                                sumber daya dan kesejahteraan masyarakat Sulit Air.</p>
                         </div>
                     </div>
                 </div>
@@ -296,7 +281,7 @@
                                 class="card card-rotate card-background card-background-mask-primary shadow-dark mt-md-0 mt-5">
                                 <div class="front front-background"
                                     style=" 
-                                background-image: url('{{ asset('assets_frontend/img/logo_spai.png') }}'); 
+                                background-image: url('{{ asset('assets_frontend/img/logo.jpg') }}'); 
                                 background-repeat: no-repeat; 
                                 background-position: center; 
                                 background-size: contain; 
@@ -304,19 +289,19 @@
                                 border-radius: 1rem;">
                                     <div class="card-body py-7 text-center">
                                         <i class="material-symbols-rounded text-white text-4xl my-3">touch_app</i>
-                                        <h3 class="text-white">Feel the <br /> Material Kit</h3>
-                                        <p class="text-white opacity-8">All the Bootstrap components that you need in a
-                                            development have been re-design with the new look.</p>
+                                        <h3 class="text-white">Program Pendidikan</h3>
+                                        <p class="text-white opacity-8">Pendidikan kader dan penguatan kapasitas da’i untuk
+                                            menjawab kebutuhan lokal.</p>
                                     </div>
                                 </div>
                                 <div class="back back-background"
-                                    style="background-image: url('{{ asset('assets_frontend/img/apoteker-5.png') }}'); background-size: cover;">
+                                    style="background-image: url('{{ asset('assets_frontend/img/logo.jpg') }}'); background-size: cover;">
                                     <div class="card-body pt-7 text-center">
-                                        <h3 class="text-white">Discover More</h3>
-                                        <p class="text-white opacity-8"> You will save a lot of time going from prototyping
-                                            to full-functional code because all elements are implemented.</p>
-                                        <a href=".//sections/page-sections/hero-sections.html" target="_blank"
-                                            class="btn btn-white btn-sm w-50 mx-auto mt-3">Start with Headers</a>
+                                        <h3 class="text-white">Program Sosial</h3>
+                                        <p class="text-white opacity-8">Kegiatan pengabdian masyarakat yang terintegrasi
+                                            dengan dakwah.</p>
+                                        <a href="#" target="_blank"
+                                            class="btn btn-white btn-sm w-50 mx-auto mt-3">Pelajari Program</a>
                                     </div>
                                 </div>
                             </div>
@@ -328,7 +313,7 @@
                                 class="card card-rotate card-background card-background-mask-primary shadow-dark mt-md-0 mt-5">
                                 <div class="front front-background"
                                     style=" 
-                                background-image: url('{{ asset('assets_frontend/img/logo_spai.png') }}'); 
+                                background-image: url('{{ asset('assets_frontend/img/logo.jpg') }}'); 
                                 background-repeat: no-repeat; 
                                 background-position: center; 
                                 background-size: contain; 
@@ -336,19 +321,19 @@
                                 border-radius: 1rem;">
                                     <div class="card-body py-7 text-center">
                                         <i class="material-symbols-rounded text-white text-4xl my-3">touch_app</i>
-                                        <h3 class="text-white">Feel the <br /> Material Kit</h3>
-                                        <p class="text-white opacity-8">All the Bootstrap components that you need in a
-                                            development have been re-design with the new look.</p>
+                                        <h3 class="text-white">Kemitraan</h3>
+                                        <p class="text-white opacity-8">Sinergi dengan yayasan, MUI, nagari, dan lembaga
+                                            lainnya.</p>
                                     </div>
                                 </div>
                                 <div class="back back-background"
-                                    style="background-image: url('{{ asset('assets_frontend/img/apoteker-5.png') }}'); background-size: cover;">
+                                    style="background-image: url('{{ asset('assets_frontend/img/logo.jpg') }}'); background-size: cover;">
                                     <div class="card-body pt-7 text-center">
-                                        <h3 class="text-white">Discover More</h3>
-                                        <p class="text-white opacity-8"> You will save a lot of time going from prototyping
-                                            to full-functional code because all elements are implemented.</p>
-                                        <a href=".//sections/page-sections/hero-sections.html" target="_blank"
-                                            class="btn btn-white btn-sm w-50 mx-auto mt-3">Start with Headers</a>
+                                        <h3 class="text-white">Kolaborasi</h3>
+                                        <p class="text-white opacity-8">Membangun aliansi strategis demi keberlanjutan
+                                            program.</p>
+                                        <a href="#" target="_blank"
+                                            class="btn btn-white btn-sm w-50 mx-auto mt-3">Lihat Mitra</a>
                                     </div>
                                 </div>
                             </div>
@@ -360,7 +345,7 @@
                                 class="card card-rotate card-background card-background-mask-primary shadow-dark mt-md-0 mt-5">
                                 <div class="front front-background"
                                     style=" 
-                                background-image: url('{{ asset('assets_frontend/img/logo_spai.png') }}'); 
+                                background-image: url('{{ asset('assets_frontend/img/logo.jpg') }}'); 
                                 background-repeat: no-repeat; 
                                 background-position: center; 
                                 background-size: contain; 
@@ -368,19 +353,19 @@
                                 border-radius: 1rem;">
                                     <div class="card-body py-7 text-center">
                                         <i class="material-symbols-rounded text-white text-4xl my-3">touch_app</i>
-                                        <h3 class="text-white">Feel the <br /> Material Kit</h3>
-                                        <p class="text-white opacity-8">All the Bootstrap components that you need in a
-                                            development have been re-design with the new look.</p>
+                                        <h3 class="text-white">Pengabdian Masyarakat</h3>
+                                        <p class="text-white opacity-8">Program-program yang langsung memberi manfaat pada
+                                            warga setempat.</p>
                                     </div>
                                 </div>
                                 <div class="back back-background"
-                                    style="background-image: url('{{ asset('assets_frontend/img/apoteker-5.png') }}'); background-size: cover;">
+                                    style="background-image: url('{{ asset('assets_frontend/img/logo.jpg') }}'); background-size: cover;">
                                     <div class="card-body pt-7 text-center">
-                                        <h3 class="text-white">Discover More</h3>
-                                        <p class="text-white opacity-8"> You will save a lot of time going from prototyping
-                                            to full-functional code because all elements are implemented.</p>
-                                        <a href=".//sections/page-sections/hero-sections.html" target="_blank"
-                                            class="btn btn-white btn-sm w-50 mx-auto mt-3">Start with Headers</a>
+                                        <h3 class="text-white">Implementasi</h3>
+                                        <p class="text-white opacity-8">Dari prototipe menuju kegiatan berkelanjutan yang
+                                            terukur.</p>
+                                        <a href="#" target="_blank"
+                                            class="btn btn-white btn-sm w-50 mx-auto mt-3">Ikut Program</a>
                                     </div>
                                 </div>
                             </div>
@@ -394,11 +379,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 mx-auto text-center">
-                        <h2 class="mb-0 font-weight-bolder text-black">Trusted by Thousands of Indonesian Pharmacists</h2>
+                        <h2 class="mb-0 font-weight-bolder text-black">Didukung Oleh Komunitas dan Mitra Lokal</h2>
                         <p class="text-muted mt-3 p-horizontal">
-                            Serikat Profesi Apoteker Indonesia (SPAI) menjadi wadah bagi para apoteker yang berkomitmen
-                            meningkatkan kompetensi, profesionalisme, dan kontribusi nyata bagi masyarakat melalui berbagai
-                            program pengembangan profesi dan kegiatan sosial.
+                            Dewan Da’wah Risalah Islamiyyah (DDR) bekerja sama dengan berbagai pihak—yayasan, MUI, nagari,
+                            dan lembaga kemitraan lainnya—untuk mewujudkan visi dan misi dakwah di Sulit Air.
                         </p>
                     </div>
                 </div>
@@ -409,15 +393,15 @@
                             <div class="card-body">
                                 <div class="author">
                                     <div class="name">
-                                        <h6 class="mb-0 font-weight-bolder">dr. apt. Rahmawati, M.Farm</h6>
+                                        <h6 class="mb-0 font-weight-bolder">Prof. Dr. M. Amin Nurdin</h6>
                                         <div class="stats">
                                             <i class="far fa-clock"></i> 2 hari lalu
                                         </div>
                                     </div>
                                 </div>
                                 <p class="mt-4">
-                                    “Melalui SPAI, saya bisa mengikuti pelatihan kefarmasian yang sangat bermanfaat
-                                    untuk meningkatkan pelayanan di tempat kerja saya.”
+                                    “Kegiatan pendidikan dan dakwah di organisasi ini memberikan manfaat nyata bagi
+                                    penguatan komunitas lokal.”
                                 </p>
                                 <div class="rating mt-3">
                                     <i class="fas fa-star text-dark"></i>
@@ -435,15 +419,14 @@
                             <div class="card-body text-white">
                                 <div class="author align-items-center">
                                     <div class="name">
-                                        <h6 class="mb-0 text-white font-weight-bolder">apt. Dwi Nugraha, S.Farm</h6>
+                                        <h6 class="mb-0 text-white font-weight-bolder">Dr. M. Akhyar Adnan, MA</h6>
                                         <div class="stats">
                                             <i class="far fa-clock"></i> 1 minggu lalu
                                         </div>
                                     </div>
                                 </div>
                                 <p class="mt-4">
-                                    “SPAI bukan hanya organisasi, tapi juga komunitas yang peduli terhadap pengembangan
-                                    profesi apoteker. Kegiatannya inspiratif dan membangun semangat kebersamaan.”
+                                    “Melalui sinergi mitra, program dakwah dapat berjalan lebih efektif dan berkelanjutan.”
                                 </p>
                                 <div class="rating mt-3">
                                     <i class="fas fa-star text-white"></i>
@@ -461,15 +444,15 @@
                             <div class="card-body">
                                 <div class="author">
                                     <div class="name">
-                                        <h6 class="mb-0 font-weight-bolder">apt. Fajar Prasetyo, M.Farm.Klin</h6>
+                                        <h6 class="mb-0 font-weight-bolder">Drs. Prof. Jurnalis Uddin</h6>
                                         <div class="stats">
                                             <i class="far fa-clock"></i> 3 minggu lalu
                                         </div>
                                     </div>
                                 </div>
                                 <p class="mt-4">
-                                    “Saya bangga menjadi bagian dari SPAI. Kegiatan sosial dan pengabdian masyarakatnya
-                                    menunjukkan bahwa apoteker memiliki peran penting dalam kesehatan bangsa.”
+                                    “Kegiatan sosial dan pendidikan di Dewan Risalah menunjukkan komitmen nyata terhadap
+                                    perubahan sosial.”
                                 </p>
                                 <div class="rating mt-3">
                                     <i class="fas fa-star text-dark"></i>
@@ -485,26 +468,7 @@
 
                 <hr class="horizontal dark my-5">
 
-                {{-- <div class="row justify-content-center align-items-center">
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img class="w-100 opacity-75"
-                        src="{{ asset('assets_frontend/img/logos/gray-logos/logo-bpom.png') }}" alt="BPOM">
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img class="w-100 opacity-75" src="{{ asset('assets_frontend/img/logos/gray-logos/logo-iai.png') }}"
-                        alt="Ikatan Apoteker Indonesia">
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img class="w-100 opacity-75"
-                        src="{{ asset('assets_frontend/img/logos/gray-logos/logo-depkes.png') }}"
-                        alt="Kementerian Kesehatan">
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img class="w-100 opacity-75"
-                        src="{{ asset('assets_frontend/img/logos/gray-logos/logo-univ.png') }}"
-                        alt="Universitas Farmasi">
-                </div>
-            </div> --}}
+                {{-- placeholder untuk logo mitra (jika ingin ditampilkan, bisa di-uncomment dan ganti asset sesuai mitra) --}}
             </div>
         </section>
 

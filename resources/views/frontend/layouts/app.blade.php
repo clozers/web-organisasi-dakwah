@@ -16,10 +16,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets_frontend/img/logo_spai.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets_frontend/img/logo_spai.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets_frontend/img/logo.jpg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets_frontend/img/logo.jpg') }}">
     <title>
-        Serikat Apoteker Indonesia
+        Dakwah Dewan Risalah
     </title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
@@ -59,9 +59,9 @@
                     <div class="container-fluid px-0">
                         <a class="navbar-brand font-weight-bolder ms-sm-3 text-sm" href="/homepage" rel="tooltip"
                             title="Designed and Coded by Creative Tim" data-placement="bottom">
-                            <img src="{{ asset('assets_frontend/img/logo_spai.png') }}" width="40px" alt=""
+                            <img src="{{ asset('assets_frontend/img/logo.jpg') }}" width="40px" alt=""
                                 srcset="">
-                            Serikat Apoteker Indonesia
+                            Dakwah Dewan Risalah
                         </a>
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
@@ -567,7 +567,8 @@
                             All rights reserved. Copyright ©
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> Serikat Apoteker Indonesia
+                            </script> Dakwah Dewan Risalah
+                            {{-- <a href="https://www.creative-tim.com" class="text-dark font-weight-bold" target="_blank">Creative Tim</a> --}}
                         </p>
                     </div>
                 </div>

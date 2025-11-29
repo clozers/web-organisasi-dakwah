@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
             // Ubah favicon tab browser
             \Filament\Support\Facades\FilamentView::registerRenderHook(
                 'panels::head.start',
-                fn() => '<link rel="icon" type="image/png" href="' . asset('assets_frontend/img/logo_spai.jpg') . '">'
+                fn() => '<link rel="icon" type="image/png" href="' . asset('assets_frontend/img/logo.jpg') . '">'
             );
         });
     }
