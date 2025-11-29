@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | SPAI</title>
+    <title>Login | DDRI</title>
     <link rel="stylesheet"
         href="{{ asset('assets_auth/style.css') }}?v={{ filemtime(public_path('assets_auth/style.css')) }}">
 </head>
