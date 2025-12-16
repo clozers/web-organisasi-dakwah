@@ -24,7 +24,7 @@ class JurnalKasResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Jurnal Kas';
+    protected static ?string $recordTitleAttribute = 'nama';
 
     public static function form(Schema $schema): Schema
     {

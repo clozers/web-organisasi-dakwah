@@ -22,7 +22,7 @@ class InstitusiResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Institusi';
+    protected static ?string $recordTitleAttribute = 'nm_institusi';
 
     public static function form(Schema $schema): Schema
     {

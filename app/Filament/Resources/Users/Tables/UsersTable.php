@@ -27,7 +27,7 @@ class UsersTable
                 TextColumn::make('no_tlp')
                     ->label('No. Telepon')
                     ->searchable()
-                    ->url(fn($record) => 'https://api.whatsapp.com/send?phone=' . preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', $record->phone)))
+                    ->url(fn($record) => 'https://api.whatsapp.com/send?phone=' . preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', $record->no_tlp)))
                     ->openUrlInNewTab(), // biar buka di tab baru
                 TextColumn::make('alamat')
                     ->searchable()
@@ -52,7 +52,7 @@ class UsersTable
                 TextColumn::make('institusi.nm_institusi')
                     ->label('Institusi')
                     ->sortable()
-                    ->searchable(),
+                    ->searchable(['institusis.nm_institusi']),
                 TextColumn::make('role')
                     ->label('Jabatan')
                     ->searchable()

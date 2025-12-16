@@ -30,47 +30,51 @@ class JurnalKasTable
         return $table
             ->columns([
                 TextColumn::make('nama')
-                    ->label('Nama Donatur')
-                    ->searchable(),
-                TextColumn::make('no_tlp')
-                    ->label('No. Telepon')
-                    ->searchable(),
-                TextColumn::make('email')
-                    ->label('Email')
-                    ->searchable(),
-                TextColumn::make('tanggal')
-                    ->date()
-                    ->sortable(),
-                TextColumn::make('keterangan')
+                    ->label('Donatur')
                     ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('user.name')
-                    ->label('Petugas')
+                    ->description(fn($record) => $record->email . ($record->no_tlp ? ' | ' . $record->no_tlp : ''))
+                    ->wrap(),
+                
+                TextColumn::make('tanggal')
+                    ->date('d M Y')
                     ->sortable()
-                    ->searchable(),
+                    ->description(fn($record) => $record->metode),
+
                 TextColumn::make('jenisTransaksi.nama_transaksi')
-                    ->label('Jenis Transaksi')
+                    ->label('Transaksi')
                     ->sortable()
-                    ->searchable(),
+                    ->searchable()
+                    ->badge()
+                    ->color(fn($record) => $record->jenisTransaksi?->tipe_transaksi === 'MASUK' ? 'success' : 'danger'),
+
                 TextColumn::make('nominal')
                     ->label('Nominal')
-                    ->formatStateUsing(fn($state) => 'Rp ' . number_format($state, 0, ',', '.')),
+                    ->weight('bold')
+                    ->formatStateUsing(fn($state, $record) => ($record->jenisTransaksi?->tipe_transaksi === 'MASUK' ? '+ ' : '- ') . 'Rp ' . number_format($state, 0, ',', '.'))
+                    ->color(fn($record) => $record->jenisTransaksi?->tipe_transaksi === 'MASUK' ? 'success' : 'danger')
+                    ->alignRight(),
+
                 TextColumn::make('status')
                     ->label('Status')
-                    ->badge() // tampilkan sebagai badge
+                    ->badge()
+                    ->icon(fn(string $state): string => match ($state) {
+                        'waiting_approval' => 'heroicon-m-clock',
+                        'approved'         => 'heroicon-m-check-circle',
+                        'rejected'         => 'heroicon-m-x-circle',
+                        default            => 'heroicon-m-question-mark-circle',
+                    })
                     ->color(fn(string $state): string => match ($state) {
                         'waiting_approval' => 'warning',
                         'approved'         => 'success',
                         'rejected'         => 'danger',
                         default            => 'secondary',
                     }),
-                TextColumn::make('metode')
-                    ->badge(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
+                
+                TextColumn::make('user.name')
+                    ->label('Petugas')
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
+
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

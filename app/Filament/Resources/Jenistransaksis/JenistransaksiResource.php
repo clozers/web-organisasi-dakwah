@@ -22,7 +22,7 @@ class JenistransaksiResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Jenis Transaksi';
+    protected static ?string $recordTitleAttribute = 'nama_transaksi';
 
     public static function form(Schema $schema): Schema
     {
