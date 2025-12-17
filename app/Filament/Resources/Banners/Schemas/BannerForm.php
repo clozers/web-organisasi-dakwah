@@ -26,8 +26,8 @@ class BannerForm
                         'banner kegiatan' => 'Banner kegiatan',
                         'banner sejarah organisasi' => 'Banner sejarah organisasi',
                         'banner seminar' => 'Banner seminar',
-                    ])
-                    ->required(),
+                        'banner home' => 'Banner Home',
+                    ]),
                 Textarea::make('deskripsi')
                     ->label('Deskripsi')
                     ->required()
