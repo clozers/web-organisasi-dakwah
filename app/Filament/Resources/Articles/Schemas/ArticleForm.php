@@ -49,7 +49,7 @@ class ArticleForm
                     ->label('Banner')
                     ->image()
                     ->disk('public')
-                    ->directory('banners')
+                    ->directory('article-banners')
                     ->imagePreviewHeight('200')
                     ->downloadable()
                     ->openable()
