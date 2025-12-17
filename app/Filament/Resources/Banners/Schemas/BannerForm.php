@@ -18,6 +18,16 @@ class BannerForm
                     ->label('Judul')
                     ->required()
                     ->maxLength(255),
+                Select::make('title')
+                    ->label('Title')
+                    ->options([
+                        'banner struktur organisasi' => 'Banner Struktur Organisasi',
+                        'banner artikel & berita' => 'Banner artikel & berita',
+                        'banner kegiatan' => 'Banner kegiatan',
+                        'banner sejarah organisasi' => 'Banner sejarah organisasi',
+                        'banner seminar' => 'Banner seminar',
+                    ])
+                    ->required(),
                 Textarea::make('deskripsi')
                     ->label('Deskripsi')
                     ->required()

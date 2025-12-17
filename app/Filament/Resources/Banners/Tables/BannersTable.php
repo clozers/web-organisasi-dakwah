@@ -24,6 +24,9 @@ class BannersTable
                     ->label('Deskripsi')
                     ->limit(50)
                     ->searchable(),
+                TextColumn::make('title')
+                    ->label('Title')
+                    ->searchable(),
                 ImageColumn::make('foto')
                     ->label('Foto')
                     ->circular()
