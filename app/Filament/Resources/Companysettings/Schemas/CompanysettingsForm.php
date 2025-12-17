@@ -17,6 +17,8 @@ class CompanysettingsForm
                     ->label('Logo')
                     ->image()
                     ->nullable()
+                    ->disk('public')
+                    ->visibility('public')
                     ->directory('companysettings/logos'),
                 TextInput::make('nama_organisasi')
                     ->label('Nama Organisasi')

@@ -34,6 +34,8 @@ class BannerForm
                     ->label('Foto')
                     ->image()
                     ->required()
+                    ->disk('public')
+                    ->visibility('public')
                     ->directory('banners')
                     ->columnSpanFull(),
             ]);
