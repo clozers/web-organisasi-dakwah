@@ -9,6 +9,7 @@ use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\RichEditor;
+use Illuminate\Support\Str;
 
 class ArticleForm
 {
@@ -18,7 +19,14 @@ class ArticleForm
             ->components([
                 TextInput::make('title')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(fn ($set, ?string $state) => $set('slug', Str::slug($state))),
+
+                TextInput::make('slug')
+                    ->required()
+                    ->maxLength(255)
+                    ->unique(ignoreRecord: true),
 
                 RichEditor::make('content')
                     ->label('Konten')
@@ -49,7 +57,7 @@ class ArticleForm
                     ->label('Banner')
                     ->image()
                     ->disk('public')
-                    ->directory('article-banners')
+                    ->directory('articlebanners')
                     ->imagePreviewHeight('200')
                     ->downloadable()
                     ->openable()
