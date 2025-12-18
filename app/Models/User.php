@@ -68,4 +68,36 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->belongsTo(\App\Models\Institusi::class, 'institusi_id', 'id_institusi');
     }
+
+    public function bidangs()
+    {
+        return $this->belongsToMany(Bidang::class, 'bidang_users')
+            ->withPivot('bidang_role_id')
+            ->withTimestamps();
+    }
+
+    public function bidangRoles()
+    {
+        return $this->belongsToMany(BidangRole::class, 'bidang_users', 'user_id', 'bidang_role_id')
+            ->withPivot('bidang_id')
+            ->withTimestamps();
+    }
+
+    public function hasBidangRole($bidangId, string $roleSlug): bool
+    {
+        return $this->bidangRoles()
+            ->where('bidang_users.bidang_id', $bidangId)
+            ->where('bidang_roles.slug', $roleSlug)
+            ->exists();
+    }
+
+    public function createdProgramKerjas()
+    {
+        return $this->hasMany(ProgramKerja::class, 'created_by');
+    }
+
+    public function createdKegiatans()
+    {
+        return $this->hasMany(Kegiatan::class, 'created_by');
+    }
 }
