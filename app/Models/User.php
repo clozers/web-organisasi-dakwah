@@ -28,6 +28,8 @@ class User extends Authenticatable implements FilamentUser
         'nm_institusi',
         'institusi_id',
         'no_tlp',
+        'profesi',
+        'suku',
         'role',
         'password',
         'city_of_practice',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Banner;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,7 @@ class SeminarController extends Controller
 {
     public function index()
     {
+        $banners = Banner::where('status', 'active')->where('title', 'banner seminar')->get();
         $seminars = Event::with(['registrations' => function ($q) {
             $q->where('user_id', auth()->id());
         }])
@@ -17,7 +19,7 @@ class SeminarController extends Controller
             ->orderBy('start_at', 'asc')
             ->get();
 
-        return view('frontend.events.seminar', compact('seminars'));
+        return view('frontend.events.seminar', compact('seminars', 'banners'));
     }
 
     public function show(Event $seminar)

@@ -229,39 +229,6 @@ class NeumorphismLoginForm {
         this.clearError('no_tlp');
         return true;
     }
-    
-    validateCityOfPractice() {
-        const cityOfPractice = this.cityOfPracticeInput.value;
-        if (!cityOfPractice) {
-            this.showError('city_of_practice', 'Kota Tempat Praktek wajib diisi');
-            return false;
-        }
-
-        this.clearError('city_of_practice');
-        return true;
-    }
-
-    validateInstitusi() {
-        const institusi = this.institusiSelect.value;
-        if (!institusi) {
-            this.showError('institusi_id', 'Institusi Praktek wajib diisi');
-            return false;
-        }
-
-        this.clearError('institusi_id');
-        return true;
-    }
-
-    validateLicensingPharmacy() {
-        const licensingPharmacy = this.licensingPharmacySelect.value;
-        if (!licensingPharmacy) {
-            this.showError('licensing_pharmacy', 'Lisensi Apotek wajib diisi');
-            return false;
-        }
-
-        this.clearError('licensing_pharmacy');
-        return true;
-    }
 
     showError(field, message) {
         const formGroup = document.getElementById(field).closest('.form-group');
@@ -309,11 +276,8 @@ class NeumorphismLoginForm {
             const emailOk = this.validateEmail();
             const passwordOk = this.validatePassword();
             const noTlpOk = this.validateNoTlp();
-            const cityOk = this.validateCityOfPractice();
-            const institusiOk = this.validateInstitusi();
-            const licenseOk = this.validateLicensingPharmacy();
 
-            valid = nameOk && emailOk && passwordOk && noTlpOk && cityOk && institusiOk && licenseOk;
+            valid = nameOk && emailOk && passwordOk && noTlpOk;
         }
 
         if (!valid) {
@@ -329,7 +293,7 @@ class NeumorphismLoginForm {
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
-                    'Accept': 'application/json',            // ⛔ WAJIB
+                    'Accept': 'application/json',
                     'X-Requested-With': 'XMLHttpRequest'     
                 },
                 body: formData
@@ -339,7 +303,7 @@ class NeumorphismLoginForm {
                 if (response.status === 401) {
                     this.showError('password', 'Email atau password salah');
                     this.showError('email', 'Email atau password salah');
-                    return; // ⛔ stop, jangan lanjut ke success
+                    return; //  stop, jangan lanjut ke success
                 }
 
                 if (!response.ok) {

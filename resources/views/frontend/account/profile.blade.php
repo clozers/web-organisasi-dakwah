@@ -72,11 +72,13 @@
 
 @section('content')
 <div class="container py-7 mt-8">
-    <div class="card profile-card border-0 shadow-sm p-4 rounded-4">
+    <div class="card profile-card border-0 shadow-sm p-4 rounded">
         <div class="row align-items-center">
             <!-- Foto profil kiri -->
             <div class="col-md-4 text-center mb-4 mb-md-0">
-                <img src="{{ asset('assets_frontend/img/bruce-mars.jpg') }}" alt="Profile"
+                <img src="{{ $profile->foto 
+                            ? asset('storage/' . $profile->foto) 
+                            : asset('assets_frontend/img/bruce-mars.jpg') }}" alt="Profile"
                     class="profile-img shadow-sm">
             </div>
 
@@ -103,22 +105,40 @@
                 </div>
 
                 <div class="data-row">
-                    <div class="data-label">Kota Tempat Praktek</div>
+                    <div class="data-label">Alamat</div>
                     <div class="data-separator">:</div>
-                    <div class="data-value">{{ $profile->city_of_practice }}</div>
+                    <div class="data-value">{{ $profile->alamat }}</div>
                 </div>
 
                 <div class="data-row">
-                    <div class="data-label">Institusi Praktek</div>
+                    <div class="data-label">Profesi</div>
                     <div class="data-separator">:</div>
-                    <div class="data-value">{{ $profile->institution_of_practice }}</div>
+                    <div class="data-value">{{ $profile->profesi }}</div>
                 </div>
 
-                {{-- <div class="text-center text-md-start mt-4">
-                    <a href="javascript:;" class="btn btn-outline-info btn-sm">
+                <div class="data-row">
+                    <div class="data-label">Suku</div>
+                    <div class="data-separator">:</div>
+                    <div class="data-value">{{ $profile->suku }}</div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">Struktur Kepengurusan</div>
+                    <div class="data-separator">:</div>
+                    <div class="data-value">Anggota</div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">password</div>
+                    <div class="data-separator">:</div>
+                    <div class="data-value">***</div>
+                </div>
+
+                <div class="text-center text-md-start mt-4">
+                    <a href="{{ route('profile.edit') }}" class="btn btn-info btn-sm">
                         Edit Data
                     </a>
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>

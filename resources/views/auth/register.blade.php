@@ -115,49 +115,6 @@
                     <span class="error-message" id="no_tlpError"></span>
                 </div>
 
-                <!-- Kota Tempat Praktek -->
-                <div class="form-group">
-                    <div class="input-group neu-input">
-                        <input type="text" id="city_of_practice" name="city_of_practice" required placeholder=" ">
-                        <label for="city_of_practice">Kota Tempat Praktek</label>
-                        <div class="input-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                                <circle cx="12" cy="9" r="2.5" />
-                            </svg>
-                        </div>
-                    </div>
-                    <span class="error-message" id="city_of_practiceError"></span>
-                </div>
-
-                <!-- Institusi Praktek -->
-                <div class="form-group">
-                    <div class="input-group neu-input neu-input-select">
-                        <select id="institusi_id" name="institusi_id" class="form-select" required>
-                            <option value="" disabled selected>Pilih Institusi Praktek</option>
-                            @foreach($institusis as $item)
-                            <option value="{{ $item->id_institusi }}">{{ $item->nm_institusi }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <span class="error-message" id="institusi_idError"></span>
-                </div>
-
-                <!-- Licensing Pharmacy -->
-                <div class="form-group">
-                    <div class="input-group neu-input neu-input-select">
-                        <select id="licensing_pharmacy" name="licensing_pharmacy" class="form-select" required>
-                            <option value="" disabled text-dark selected>apakah di kota Anda sudah menerapkan SLF untuk
-                                perizinan apotek ?
-                            </option>
-                            <option value="ya">Ya</option>
-                            <option value="tidak">Tidak</option>
-                            <option value="tidak tahu">Tidak Tahu</option>
-                        </select>
-                    </div>
-                    <span class="error-message" id="licensing_pharmacyError"></span>
-                </div>
-
                 <!-- Password -->
                 <div class="form-group">
                     <div class="input-group neu-input password-group">
