@@ -25,12 +25,17 @@ class KegiatanForm
                             ->relationship('bidang', 'name')
                             ->searchable()
                             ->preload()
+                            ->default(fn () => auth()->user()->bidangs->first()?->id)
+                            ->disabled()
+                            ->dehydrated()
                             ->required(),
                         TextInput::make('nama_kegiatan')
                             ->required()
                             ->live(onBlur: true)
-                            ->afterStateUpdated(fn (\Filament\Forms\Set $set, ?string $state) => $set('slug', \Illuminate\Support\Str::slug($state))),
+                            ->afterStateUpdated(fn ($set, ?string $state) => $set('slug', \Illuminate\Support\Str::slug($state))),
                         TextInput::make('slug')
+                            ->disabled()
+                            ->dehydrated()
                             ->required(),
                         \Filament\Forms\Components\Select::make('status')
                             ->options([

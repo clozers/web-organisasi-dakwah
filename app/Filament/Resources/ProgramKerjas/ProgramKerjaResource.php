@@ -22,7 +22,7 @@ class ProgramKerjaResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Program Kerja';
+    protected static ?string $recordTitleAttribute = 'nama_program';
 
     public static function form(Schema $schema): Schema
     {

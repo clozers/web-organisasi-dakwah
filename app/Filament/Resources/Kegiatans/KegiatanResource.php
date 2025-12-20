@@ -22,7 +22,7 @@ class KegiatanResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Kegiatan';
+    protected static ?string $recordTitleAttribute = 'nama_kegiatan';
 
     public static function form(Schema $schema): Schema
     {
