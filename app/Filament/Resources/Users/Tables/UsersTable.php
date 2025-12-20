@@ -33,11 +33,6 @@ class UsersTable
                     ->searchable()
                     ->limit(50)
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('city_of_practice')
-                    ->label('Kota Praktik')
-                    ->searchable()
-                    ->limit(50)
-                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('profesi')
                     ->label('Profesi')
                     ->searchable()
@@ -46,21 +41,11 @@ class UsersTable
                     ->label('Suku')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('kampus')
-                    ->label('Kampus')
-                    ->searchable(),
                 ImageColumn::make('foto')
                     ->label('Pasfoto')
                     ->getStateUsing(fn($record) => $record->foto ? asset('storage/' . $record->foto) : null)
                     ->square()
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('nm_institusi')
-                    ->label('Nama Institusi')
-                    ->searchable(),
-                TextColumn::make('institusi.nm_institusi')
-                    ->label('Institusi')
-                    ->sortable()
-                    ->searchable(['institusis.nm_institusi']),
                 TextColumn::make('role')
                     ->label('Jabatan')
                     ->searchable()

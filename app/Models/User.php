@@ -24,15 +24,11 @@ class User extends Authenticatable implements FilamentUser
         'email',
         'alamat',
         'foto',
-        'kampus',
-        'nm_institusi',
-        'institusi_id',
         'no_tlp',
         'profesi',
         'suku',
         'role',
         'password',
-        'city_of_practice',
     ];
 
     /**

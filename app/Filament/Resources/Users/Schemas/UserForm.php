@@ -27,10 +27,6 @@ class UserForm
                     ->label('No. Telepon')
                     ->required()
                     ->maxLength(20),
-                TextInput::make('city_of_practice')
-                    ->label('Kota Praktik')
-                    ->required()
-                    ->maxLength(255),
                 Textarea::make('alamat')
                     ->required()
                     ->maxLength(500),
@@ -47,10 +43,6 @@ class UserForm
                     ])
                     ->searchable()
                     ->preload(),
-                TextInput::make('kampus')
-                    ->label('Kampus')
-                    ->required()
-                    ->maxLength(255),
                 FileUpload::make('foto')
                     ->label('Pasfoto')
                     ->image()
@@ -62,16 +54,6 @@ class UserForm
                     ->maxSize(2048)
                     ->deletable(true)
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/jpg']),
-                TextInput::make('nm_institusi')
-                    ->label('Nama Institusi')
-                    ->required()
-                    ->maxLength(255),
-                Select::make('institusi_id')
-                    ->label('Institusi')
-                    ->options(Institusi::pluck('nm_institusi', 'id_institusi'))
-                    ->searchable()
-                    ->preload()
-                    ->nullable(),
                 Select::make('role')
                     ->options([
                         'ketua' => 'Ketua',
