@@ -38,6 +38,14 @@ class UsersTable
                     ->searchable()
                     ->limit(50)
                     ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('profesi')
+                    ->label('Profesi')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('suku')
+                    ->label('Suku')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('kampus')
                     ->label('Kampus')
                     ->searchable(),

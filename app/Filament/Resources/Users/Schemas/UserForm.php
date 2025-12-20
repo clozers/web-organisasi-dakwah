@@ -34,6 +34,19 @@ class UserForm
                 Textarea::make('alamat')
                     ->required()
                     ->maxLength(500),
+                TextInput::make('profesi')
+                    ->label('Profesi')
+                    ->maxLength(255),
+                Select::make('suku')
+                    ->label('Suku')
+                    ->options([
+                        'Limo Panjang' => 'Limo Panjang',
+                        'lorem' => 'lorem',
+                        'lorem 2' => 'lorem 2',
+                        'lorem 3' => 'lorem 3',
+                    ])
+                    ->searchable()
+                    ->preload(),
                 TextInput::make('kampus')
                     ->label('Kampus')
                     ->required()
