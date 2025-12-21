@@ -369,7 +369,7 @@
                                                     </div>
                                                     <div
                                                         class="w-100 d-flex align-items-center justify-content-between">
-                                                        <a href="#">
+                                                        <a href="/profile">
                                                             <div>
                                                                 <h6
                                                                     class="dropdown-header d-flex justify-content-cente align-items-center p-0">
