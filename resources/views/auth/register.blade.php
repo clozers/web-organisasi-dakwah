@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register | DDRI</title>
     <link rel="stylesheet"
-        href="{{ asset('assets_auth/style.css') }}?v={{ filemtime(public_path('assets_auth/style.css')) }}">
+        href="{{ asset('assets_auth/style.css') }}?v={{ time() }}">
     <style>
         .neu-input select {
             width: 100%;
@@ -201,7 +201,7 @@
 
     <script src="{{ asset('assets_auth/form-utils.js') }}?v={{ filemtime(public_path('assets_auth/form-utils.js')) }}">
     </script>
-    <script src="{{ asset('assets_auth/script.js') }}?v={{ filemtime(public_path('assets_auth/script.js')) }}"></script>
+    <script src="{{ asset('assets_auth/script.js') }}?v={{ time() }}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll(".password-toggle").forEach(toggle => {
