@@ -199,7 +199,7 @@
         </div>
     </div>
 
-    <script src="{{ asset('assets_auth/form-utils.js') }}?v={{ filemtime(public_path('assets_auth/form-utils.js')) }}">
+    <script src="{{ asset('assets_auth/form-utils.js') }}?v={{ time() }}">
     </script>
     <script src="{{ asset('assets_auth/script.js') }}?v={{ time() }}"></script>
     <script>
